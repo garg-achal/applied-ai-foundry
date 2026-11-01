@@ -1,0 +1,29 @@
+# Virtual Environments
+.venv/
+venv/
+env/
+
+# Python & Caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# Secrets & Environment
+.env
+.env.*
+!.env.example
+
+# Large ML Weights & Checkpoints (Host on HF Hub, not Git)
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+checkpoints/
+runs/
+wandb/
+
