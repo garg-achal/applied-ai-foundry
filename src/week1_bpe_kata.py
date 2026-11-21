@@ -116,7 +116,10 @@ def train_bpe(
         print(max_repeat)
         ids = merge_pair(ids, max_repeat, len(vocab))
 
-    print("\n lengths :", len(vocab), " and list is", vocab, "\n\n")
+    print("\n lengths of merges:", len(merges), " and list is", merges, "\n\n")
+
+    print("\n lengths of vocab:", len(vocab), " and list is", vocab, "\n\n")
+
     print("\n lengths :", len(ids), " and list is", ids, "\n\n")
 
     assert vocab_size >= 256, "Byte-level BPE base vocabulary requires at least 256 tokens."
