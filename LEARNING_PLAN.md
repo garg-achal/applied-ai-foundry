@@ -75,7 +75,7 @@ To protect deep cognitive processing time and internalize the underlying tensor 
 | **Local High-Speed Agent & Teacher LLM** | **LM Studio (`Qwen3-Coder-30B-A3B` `Q3_K_L` GGUF, ~14.5GB)** | Local OpenAI-compatible server (`http://localhost:1234/v1`) for MCP, tool calling, and Teacher $\rightarrow$ Student synthetic data generation. Unload (`lms unload --all`) before running heavy PyTorch `mps` jobs. |
 | **Cloud Tier-1 GPU Compute** | **Google Colab Pro (200 CU/mo) + AWS EC2 (`g5.xlarge` A10G 24GB)** | Bursts on **NVIDIA L4 / A10G** for `bitsandbytes` NF4 QLoRA, `llm-compressor` (W4A16/FP8), and **`vLLM`** high-concurrency multi-request load benchmarks. |
 | **API & Cloud Hosting Plane** | **Google AI Studio + HF Spaces + GCP Cloud Run** | Zero-cost hosting for demo endpoints on **Hugging Face Spaces** and **GCP Cloud Run**. Banked Google AI Pro credits reserved for burst evaluations. |
-| **Venture & Portfolio Asset** | **`curons.org` + GitHub (`applied-ai-foundry`) + Hugging Face (`imhlg`)** | Public proof-of-work repository, verifiable benchmark dashboards, and commercial B2B audit landing page. |
+| **Venture & Portfolio Asset** | **`curons.org` + GitHub (`garg-achal/applied-ai-foundry`) + Hugging Face (`imhlg`)** | Public proof-of-work repository, verifiable benchmark dashboards, and commercial B2B audit landing page. |
 | **Career & Interview Sync** | **Google Drive (`gdrive`) + Grok Bot** | Daily sync in Google Drive folder `AI-FDE-Sprint-2026` (`1_IHEWhtTKvCpsOoPqGL36_G_42Gc8qXO`): `LEARNING_PLAN.md` (`1DTY2snGS1CdS-VAa23luE4wC5p4X7JwMGXMpahVESeQ`) and `GROK_CAREER_AND_PROGRESS_SYNC.md` (`1YwnHeVfQye214j5P_o3ID_NiGCQAJRLN1MTzKQhfy1g`). |
 
 ---

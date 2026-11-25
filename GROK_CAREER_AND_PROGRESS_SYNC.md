@@ -21,7 +21,7 @@
 
 - **Experience**: 10–13 Years in Software Systems, Cloud Infrastructure, AI Platform Delivery & Technical Leadership (ex-Uniphore, ex-Bharti Airtel).  
 - **Venture Entity**: `curons.org` (AI Systems Foundry & FinOps Advisory).  
-- **GitHub Foundry Repo**: `applied-ai-foundry` (Reference architecture for QLoRA, MoE Pruning, Activation Steering, and vLLM Multi-LoRA).  
+- **GitHub Foundry Repo**: [`https://github.com/garg-achal/applied-ai-foundry`](https://github.com/garg-achal/applied-ai-foundry) (`garg-achal/applied-ai-foundry` — Reference architecture for QLoRA, MoE Pruning, Activation Steering, and vLLM Multi-LoRA).  
 - **Hugging Face Hub**: [`https://huggingface.co/imhlg`](https://huggingface.co/imhlg) (`imhlg`).  
 - **Sprint Horizon**: **v4.0 `Applied AI Foundry` Sprint** (Nov 1 – Dec 13, 2026 Core 6-Week Sprint @ 42 hrs/wk = 252 Hours; Phase 1 B2B Pilots & Senior Applications launch Nov 30; Weeks 7–10 Advanced Horizon for Evolutionary Merging & Triton Kernels).
 

@@ -72,7 +72,7 @@ applied-ai-foundry/
 
 ### 1. Environment Setup
 ```bash
-git clone https://github.com/imhlg/applied-ai-foundry.git
+git clone https://github.com/garg-achal/applied-ai-foundry.git
 cd applied-ai-foundry
 
 python3 -m venv .venv
@@ -99,7 +99,7 @@ python3 src/week1_mps_starter.py
 ---
 
 ## Author
-- **Achal Garg** ([@imhlg](https://github.com/imhlg))
+- **Achal Garg** ([@garg-achal](https://github.com/garg-achal))
 - **Hugging Face**: [huggingface.co/imhlg](https://huggingface.co/imhlg)
 
 ## Week 1 – MPS Inference Benchmark Results
