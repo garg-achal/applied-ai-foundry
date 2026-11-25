@@ -3,7 +3,7 @@ Week 1, Lab 3 (v4.0): Transformer Weight Dissection (SVD), Local TRL LoRA Fine-T
 & Adapter Trajectory Analysis (Delta_W = (alpha / r) * B @ A) + Hugging Face Hub Publisher
 
 Target Model : Qwen/Qwen3-4B (Apache-2.0) on Apple M4 Metal (`mps`, bfloat16)
-Target HF Hub: https://huggingface.co/imhlg/qwen3-4b-finops-lora-week1
+Target HF Hub: https://huggingface.co/garg-achal/qwen3-4b-finops-lora-week1
 
 IMPORTANT M4 24GB UNIFIED MEMORY GUARDRAIL:
 Before running this script, ensure LM Studio's 30B model is unloaded:
@@ -13,7 +13,7 @@ Usage:
     # 1. Run full local SVD dissection + LoRA fine-tuning + Delta_W trajectory analysis:
     .venv/bin/python src/week1_svd_lora_lab.py
 
-    # 2. Run AND publish your trained adapter + SVD Model Card to https://huggingface.co/imhlg:
+    # 2. Run AND publish your trained adapter + SVD Model Card to https://huggingface.co/garg-achal:
     .venv/bin/python src/week1_svd_lora_lab.py --push-to-hub
 """
 
@@ -43,7 +43,7 @@ logger = logging.getLogger(__name__)
 @dataclass(frozen=True)
 class LabConfig:
     model_id: str = "Qwen/Qwen3-4B"
-    hub_repo_id: str = "imhlg/qwen3-4b-finops-lora-week1"
+    hub_repo_id: str = "garg-achal/qwen3-4b-finops-lora-week1"
     output_dir: str = "outputs/qwen3-4b-finops-lora-week1"
     device: str = "mps" if torch.backends.mps.is_available() else "cpu"
     dtype: torch.dtype = torch.bfloat16
@@ -351,7 +351,7 @@ def run_lora_sft_and_inspect_delta_w(
 
 
 # ==============================================================================
-# PART 4: GENERATE MODEL CARD & PUSH TO HUGGING FACE HUB (`imhlg`)
+# PART 4: GENERATE MODEL CARD & PUSH TO HUGGING FACE HUB (`garg-achal`)
 # ==============================================================================
 
 
@@ -389,7 +389,7 @@ license: apache-2.0
 
 # {config.hub_repo_id.split('/')[-1]}: Weight-Level SVD Dissection & Enterprise FinOps LoRA Adapter
 
-Fine-tuned **PEFT LoRA ($r={config.lora_r}, \\alpha={config.lora_alpha}$)** adapter for **[`{config.model_id}`](https://huggingface.co/{config.model_id})** built as part of the **Applied AI Foundry (`v4.0`)** Sprint (**[`curons.org`](https://curons.org)** | **[`@imhlg`](https://huggingface.co/imhlg)**).
+Fine-tuned **PEFT LoRA ($r={config.lora_r}, \\alpha={config.lora_alpha}$)** adapter for **[`{config.model_id}`](https://huggingface.co/{config.model_id})** built as part of the **Applied AI Foundry (`v4.0`)** Sprint (**[`curons.org`](https://curons.org)** | **[`@garg-achal`](https://huggingface.co/garg-achal)**).
 
 This checkpoint trains `{config.model_id}` to produce deterministic **`[FINOPS_AUDIT_REPORT]`** diagnostics for enterprise GPU sizing, KV-cache bottlenecks, and `vLLM` serving optimizations—accompanied by **Singular Value Decomposition (SVD)** spectrum telemetry of both the base weights $W$ and the low-rank adapter update $\\Delta W = \\frac{{\\alpha}}{{r}} B \\cdot A$.
 
@@ -437,7 +437,7 @@ def main() -> None:
     parser.add_argument(
         "--push-to-hub",
         action="store_true",
-        help="Push the trained LoRA adapter and SVD Model Card to Hugging Face Hub (imhlg).",
+        help="Push the trained LoRA adapter and SVD Model Card to Hugging Face Hub (garg-achal).",
     )
     parser.add_argument(
         "--svd-only",

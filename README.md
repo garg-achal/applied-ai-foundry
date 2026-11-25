@@ -100,7 +100,7 @@ python3 src/week1_mps_starter.py
 
 ## Author
 - **Achal Garg** ([@garg-achal](https://github.com/garg-achal))
-- **Hugging Face**: [huggingface.co/imhlg](https://huggingface.co/imhlg)
+- **Hugging Face**: [huggingface.co/garg-achal](https://huggingface.co/garg-achal)
 
 ## Week 1 – MPS Inference Benchmark Results
 

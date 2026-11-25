@@ -23,7 +23,7 @@ Automatically reference and keep up to date the user's v4.0 learning roadmap, 3-
    - Enforce the **Write-First / Explain-Back Gate** on core weekly algorithms so the user builds deep, whiteboard-ready comprehension.
    - Frame every benchmark and deliverable through a **Staff AI Platform / Forward Deployed Engineer / Pre-Sales** lens (TTFT, throughput, VRAM math, Build-vs-Buy TCO, evaluation scorecards, and customer objection handling).
 4. **Daily Progress Tracking, Hugging Face Hub & Google Drive Sync (`gdrive`)**:
-   - **Venture & Hugging Face Hub Profile**: `curons.org` | `imhlg` (`https://huggingface.co/imhlg`).
+   - **Venture & Hugging Face Hub Profile**: `curons.org` | `garg-achal` (`https://huggingface.co/garg-achal`).
    - **Daily Sync Rule**: At the end of every daily study session or completed milestone, update `LEARNING_PLAN.md` and `GROK_CAREER_AND_PROGRESS_SYNC.md` locally with dated progress, benchmark metrics, and architectural takeaways, then sync both files to Google Drive folder `AI-FDE-Sprint-2026` (`1_IHEWhtTKvCpsOoPqGL36_G_42Gc8qXO`):
      - Active v4.0 `LEARNING_PLAN.md` Google Doc ID: `1DTY2snGS1CdS-VAa23luE4wC5p4X7JwMGXMpahVESeQ` (Archive v3.5 ID: `1wx9T1Z6gVDa3z9Ax9PrmivjHdVacT3QJ`)
      - Active v4.0 `GROK_CAREER_AND_PROGRESS_SYNC.md` Google Doc ID: `1YwnHeVfQye214j5P_o3ID_NiGCQAJRLN1MTzKQhfy1g` (Archive v3.5 ID: `198pc1nNyggj3TJ6djKW0PagPXuIGEC0w`)

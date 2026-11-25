@@ -22,7 +22,7 @@
 - **Experience**: 10–13 Years in Software Systems, Cloud Infrastructure, AI Platform Delivery & Technical Leadership (ex-Uniphore, ex-Bharti Airtel).  
 - **Venture Entity**: `curons.org` (AI Systems Foundry & FinOps Advisory).  
 - **GitHub Foundry Repo**: [`https://github.com/garg-achal/applied-ai-foundry`](https://github.com/garg-achal/applied-ai-foundry) (`garg-achal/applied-ai-foundry` — Reference architecture for QLoRA, MoE Pruning, Activation Steering, and vLLM Multi-LoRA).  
-- **Hugging Face Hub**: [`https://huggingface.co/imhlg`](https://huggingface.co/imhlg) (`imhlg`).  
+- **Hugging Face Hub**: [`https://huggingface.co/garg-achal`](https://huggingface.co/garg-achal) (`garg-achal`).  
 - **Sprint Horizon**: **v4.0 `Applied AI Foundry` Sprint** (Nov 1 – Dec 13, 2026 Core 6-Week Sprint @ 42 hrs/wk = 252 Hours; Phase 1 B2B Pilots & Senior Applications launch Nov 30; Weeks 7–10 Advanced Horizon for Evolutionary Merging & Triton Kernels).
 
 ### Three Tailored Positioning Variants for Outreach & Applications
@@ -49,8 +49,8 @@
 
 | Week & Dates | Module Focus | Status | Key Technologies & Architecture Keywords |
 | :--- | :--- | :--- | :--- |
-| **Week 1** *(Nov 1–Nov 8)* | **Tokenization, Weight Matrices ($W_q, W_{mlp}$) & SVD, TRL QLoRA & W4A16** | 🟢 **100% Complete (Local M4 + Colab L4 NF4 QLoRA & W4A16)** | Byte-Level BPE (`minbpe` kata), Left-Padding masks, SVD rank analysis, `TRL` `SFTTrainer`, `bitsandbytes` NF4 QLoRA, `llm-compressor` GPTQ W4A16, HF Hub ([`imhlg/qwen3-4b-finops-lora-week1`](https://huggingface.co/imhlg/qwen3-4b-finops-lora-week1), [`imhlg/qwen3-4b-finops-w4a16-vllm`](https://huggingface.co/imhlg/qwen3-4b-finops-w4a16-vllm)) |
-| **Week 2** *(Nov 9–Nov 15)* | **Residual Streams, Runtime Activation Steering & Probe Classifiers** *(Prototype 1)* | 🟢 **Colab L4 Prototype 1 Shipped (Local 25-line Kata in progress)** | PyTorch forward hooks (`register_forward_hook`), `Outlines` guided JSON decoding, 1k-prompt sweep ([`datasets/imhlg/finops-residual-activations-1k`](https://huggingface.co/datasets/imhlg/finops-residual-activations-1k)), `20.21 KB` Layer 18 probe + CAA $\vec{v}_{\text{truth}}$ (`0.924 ms` overhead, [`imhlg/qwen3-4b-activation-probes-week2`](https://huggingface.co/imhlg/qwen3-4b-activation-probes-week2)) |
+| **Week 1** *(Nov 1–Nov 8)* | **Tokenization, Weight Matrices ($W_q, W_{mlp}$) & SVD, TRL QLoRA & W4A16** | 🟢 **100% Complete (Local M4 + Colab L4 NF4 QLoRA & W4A16)** | Byte-Level BPE (`minbpe` kata), Left-Padding masks, SVD rank analysis, `TRL` `SFTTrainer`, `bitsandbytes` NF4 QLoRA, `llm-compressor` GPTQ W4A16, HF Hub ([`garg-achal/qwen3-4b-finops-lora-week1`](https://huggingface.co/garg-achal/qwen3-4b-finops-lora-week1), [`garg-achal/qwen3-4b-finops-w4a16-vllm`](https://huggingface.co/garg-achal/qwen3-4b-finops-w4a16-vllm)) |
+| **Week 2** *(Nov 9–Nov 15)* | **Residual Streams, Runtime Activation Steering & Probe Classifiers** *(Prototype 1)* | 🟢 **Colab L4 Prototype 1 Shipped (Local 25-line Kata in progress)** | PyTorch forward hooks (`register_forward_hook`), `Outlines` guided JSON decoding, 1k-prompt sweep ([`datasets/garg-achal/finops-residual-activations-1k`](https://huggingface.co/datasets/garg-achal/finops-residual-activations-1k)), `20.21 KB` Layer 18 probe + CAA $\vec{v}_{\text{truth}}$ (`0.924 ms` overhead, [`garg-achal/qwen3-4b-activation-probes-week2`](https://huggingface.co/garg-achal/qwen3-4b-activation-probes-week2)) |
 | **Week 3** *(Nov 16–Nov 22)* | **MoE Router Profiling, Structured Expert Pruning & Distillation** *(Prototype 2)* | ⚪ Planned | `OLMoE-1B-7B` / `Qwen2.5-MoE`, Router softmax gate logits profiling, Mean Squared Activation Norm (MSAN), physical expert tensor excision, TRL distillation recovery |
 | **Week 4** *(Nov 23–Nov 29)* | **Machine Unlearning (NPO), vLLM Serving & Tournament Decision** *(Prototype 3)* | ⚪ Planned | Negative Preference Optimization (`TRL`), rank-one weight editing (ROME), `vLLM` PagedAttention & continuous batching, async load testing (TTFT/ITL), **Sunday Tournament Lock** |
 | **Week 5** *(Nov 30–Dec 6)* | **Productize Winning Thesis, Open-Source CLI & B2B Pilot Launch** | ⚪ Planned | Clean repo packaging (`applied-ai-foundry`), GitHub Actions CI eval gates, FinOps unit-cost & latency calculator, `curons.org` landing page, \$3k–\$5k B2B audit offer |
@@ -68,13 +68,13 @@
 - *Verified Metrics*: Hand-wrote 30-line Byte-Level BPE merge loop (`src/week1_bpe_kata.py`) with **4/4 passing unit tests**, **1.36x compression** on Kubernetes log corpus, zero `<unk>` tokens on multi-byte emojis.
 
 ### Deliverable 2: Layer 18 SVD Dissection & FinOps LoRA Adapter (`Qwen/Qwen3-4B`)
-- *Verified Metrics*: Profiled Layer 18 (`4:1` GQA, base Effective Rank `1,996.5–2,411.3 / 2,560`), trained rank-8 PEFT LoRA (`16,515,072` trainable params / `0.4089%` footprint) for 15 steps in `95.8s` on Apple M4 `mps` (Loss `3.8433 -> 2.0771`, $\Delta W$ nudge `0.1526%–0.2779%`), verified `merge_and_unload()` (`10.15s` vs. `21.41s` base on unseen FinOps prompt), and published 63 MB adapter + Model Card to [`imhlg/qwen3-4b-finops-lora-week1`](https://huggingface.co/imhlg/qwen3-4b-finops-lora-week1).
+- *Verified Metrics*: Profiled Layer 18 (`4:1` GQA, base Effective Rank `1,996.5–2,411.3 / 2,560`), trained rank-8 PEFT LoRA (`16,515,072` trainable params / `0.4089%` footprint) for 15 steps in `95.8s` on Apple M4 `mps` (Loss `3.8433 -> 2.0771`, $\Delta W$ nudge `0.1526%–0.2779%`), verified `merge_and_unload()` (`10.15s` vs. `21.41s` base on unseen FinOps prompt), and published 63 MB adapter + Model Card to [`garg-achal/qwen3-4b-finops-lora-week1`](https://huggingface.co/garg-achal/qwen3-4b-finops-lora-week1).
 
-### Deliverable 3: 4-Bit NF4 QLoRA & `llm-compressor` GPTQ W4A16 Serving Pipeline (`imhlg/qwen3-4b-finops-w4a16-vllm`)
+### Deliverable 3: 4-Bit NF4 QLoRA & `llm-compressor` GPTQ W4A16 Serving Pipeline (`garg-achal/qwen3-4b-finops-w4a16-vllm`)
 - *Verified Metrics (NVIDIA L4 `SM 8.9`, `bfloat16`)*: Loaded 4-bit `bitsandbytes` NF4 base in **`2.494 GB` VRAM**, trained rank-8 QLoRA for 30 steps in **`88.24s`** (`4.113 GB` peak VRAM, Loss `3.6569 -> 0.9182`), merged to `7.492 GB` BF16, and quantized via `llm-compressor GPTQ W4A16` down to **`2.47 GB` (`-67.04%` disk reduction)** (`11.95 tok/s` unpacked HF CUDA eval).
 
-### Deliverable 4: Prototype 1 — Sub-Millisecond Residual Stream Hallucination Probe & Runtime Activation Steering (`imhlg/qwen3-4b-activation-probes-week2`)
-- *Verified Metrics (NVIDIA L4, `n=1,000` FinOps Claims)*: Swept PyTorch forward hooks across Layers `[6, 12, 18, 24, 30, 35]` ([`datasets/imhlg/finops-residual-activations-1k`](https://huggingface.co/datasets/imhlg/finops-residual-activations-1k)); achieved **`1.0000` 5-fold CV & held-out (`n=200`) Precision/Recall/F1/ROC-AUC**; packaged Layer 18 linear probe + CAA steering vector into **`20.21 KB` `safetensors`**; paired with `Outlines` constrained JSON decoding at **`0.924 ms` guardrail overhead** (`49.324 ms` base vs. `50.249 ms` hooked+probed, beating `<2.0 ms` SLA and ~600x faster than external LLM judges).
+### Deliverable 4: Prototype 1 — Sub-Millisecond Residual Stream Hallucination Probe & Runtime Activation Steering (`garg-achal/qwen3-4b-activation-probes-week2`)
+- *Verified Metrics (NVIDIA L4, `n=1,000` FinOps Claims)*: Swept PyTorch forward hooks across Layers `[6, 12, 18, 24, 30, 35]` ([`datasets/garg-achal/finops-residual-activations-1k`](https://huggingface.co/datasets/garg-achal/finops-residual-activations-1k)); achieved **`1.0000` 5-fold CV & held-out (`n=200`) Precision/Recall/F1/ROC-AUC**; packaged Layer 18 linear probe + CAA steering vector into **`20.21 KB` `safetensors`**; paired with `Outlines` constrained JSON decoding at **`0.924 ms` guardrail overhead** (`49.324 ms` base vs. `50.249 ms` hooked+probed, beating `<2.0 ms` SLA and ~600x faster than external LLM judges).
 
 ---
 
@@ -92,12 +92,12 @@
 ## 5. Daily Progress Log (Synced to Google Drive)
 
 - **2026-11-21 (Colab Pro L4 CUDA Bursts 1 & 2 — Week 1 W4A16 Closure & Week 2 Prototype 1 Shipped)**:  
-  - **Burst 1 (`imhlg/qwen3-4b-finops-w4a16-vllm`)**: NVIDIA L4 (`SM 8.9`), 4-bit NF4 load `2.494 GB`, QLoRA peak `4.113 GB` (`88.24s` / 30 steps, Loss `3.6569 -> 0.9182`), merged `7.492 GB` -> `llm-compressor GPTQ W4A16` **`2.47 GB` (`-67.04%`)**, `11.95 tok/s` CUDA eval.  
-  - **Burst 2 (`imhlg/qwen3-4b-activation-probes-week2` & `datasets/imhlg/finops-residual-activations-1k`)**: 1,000-prompt Layers `[6, 12, 18, 24, 30, 35]` sweep; `1.0000` CV & held-out (`n=200`) Precision/Recall/F1/AUC; `20.21 KB` Layer 18 probe + CAA vector; `Outlines` JSON decoding + **`0.924 ms` guardrail overhead** (`49.324 ms -> 50.249 ms`).  
+  - **Burst 1 (`garg-achal/qwen3-4b-finops-w4a16-vllm`)**: NVIDIA L4 (`SM 8.9`), 4-bit NF4 load `2.494 GB`, QLoRA peak `4.113 GB` (`88.24s` / 30 steps, Loss `3.6569 -> 0.9182`), merged `7.492 GB` -> `llm-compressor GPTQ W4A16` **`2.47 GB` (`-67.04%`)**, `11.95 tok/s` CUDA eval.  
+  - **Burst 2 (`garg-achal/qwen3-4b-activation-probes-week2` & `datasets/garg-achal/finops-residual-activations-1k`)**: 1,000-prompt Layers `[6, 12, 18, 24, 30, 35]` sweep; `1.0000` CV & held-out (`n=200`) Precision/Recall/F1/AUC; `20.21 KB` Layer 18 probe + CAA vector; `Outlines` JSON decoding + **`0.924 ms` guardrail overhead** (`49.324 ms -> 50.249 ms`).  
   - Scaffolded `src/week2_residual_hooks_kata.py` and generated Colab Burst 3 & 4 notebooks.
 - **2026-11-14 (Week 1 Wrap-Up — Merged Model Verification & HF Hub Release)**:  
   - Verified unified model inference via `merge_and_unload()` (`4,022,468,096` params; `10.15s` complete `[FINOPS_AUDIT_REPORT]` vs. `21.41s` truncated base essay on unseen \$40k/mo API bill prompt).  
-  - Published the 63 MB `adapter_model.safetensors`, tokenizer files, and Layer 18 SVD Model Card to [`https://huggingface.co/imhlg/qwen3-4b-finops-lora-week1`](https://huggingface.co/imhlg/qwen3-4b-finops-lora-week1) (commit `f5afdf3a`).  
+  - Published the 63 MB `adapter_model.safetensors`, tokenizer files, and Layer 18 SVD Model Card to [`https://huggingface.co/garg-achal/qwen3-4b-finops-lora-week1`](https://huggingface.co/garg-achal/qwen3-4b-finops-lora-week1) (commit `f5afdf3a`).  
 - **2026-11-12 (Week 1, Days 3–5 — Local TRL LoRA SFT & $\Delta W$ Trajectory)**:  
   - Completed deep walkthrough of Layer 18 (`self_attn` + `mlp`) and LoRA rank-8 strips (`B @ A`).  
   - Executed `src/week1_svd_lora_lab.py` on M4 `mps`: trained `16,515,072` params (`0.4089%`) across 15 steps in `95.8s` (Loss `3.8433 -> 2.0771`), verified Layer 18 $\Delta W$ rank `8` (`0.1526%–0.2779%` nudge), and saved the 63 MB adapter checkpoint locally.  
@@ -114,4 +114,4 @@
 - **2026-11-01 (Week 1, Day 2)**:  
   - Completed hand-written Byte-Level BPE Kata (`src/week1_bpe_kata.py`) without AI autocomplete (4/4 tests passing, 1.36x compression, zero `<unk>` tokens).  
 - **2026-10-31 (Week 1, Day 1)**:  
-  - Local M4 environment locked (`torch 2.14.1` MPS, `transformers 5.20.2`). Linked Hugging Face Hub (`imhlg`). Executed `src/week1_tokenizer_deep_dive.py`.
+  - Local M4 environment locked (`torch 2.14.1` MPS, `transformers 5.20.2`). Linked Hugging Face Hub (`garg-achal`). Executed `src/week1_tokenizer_deep_dive.py`.
